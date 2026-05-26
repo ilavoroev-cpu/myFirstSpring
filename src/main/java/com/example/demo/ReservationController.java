@@ -50,9 +50,9 @@ public class ReservationController {
         //return reservationService.findAllReservation();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Reservation> updateReservation(
-            @PathVariable Long id,
+            @PathVariable("id") Long id,
             @RequestBody Reservation reservationToUpdate
     ){
         log.info("Called updateReservation id: " + id);

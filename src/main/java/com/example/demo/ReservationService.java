@@ -2,7 +2,7 @@ package com.example.demo;
 
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -91,8 +91,10 @@ public class ReservationService {
         }
         var isConflict = isReservationConflict(reservation);
         if (isConflict){
+            System.out.println(reservationMap.values());
             throw new IllegalArgumentException("Coflict");
         }
+
         var approvedReservation = new Reservation(
                 reservation.id(),
                 reservation.userId(),
@@ -119,10 +121,10 @@ public class ReservationService {
             }
             if (reservation.startDate().isBefore(existingReservation.endDate()) &&
                     existingReservation.startDate().isBefore(reservation.endDate())){
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
 
     }
 }
