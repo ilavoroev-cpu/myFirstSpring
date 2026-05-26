@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -13,10 +14,9 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class ReservationService {
     private final ReservationRepository repository;
-    private final Map<Long, Reservation> reservationMap;
+    @Autowired
     public ReservationService(ReservationRepository repository){
         this.repository = repository;
-        reservationMap = new HashMap<>();
     }
 
 

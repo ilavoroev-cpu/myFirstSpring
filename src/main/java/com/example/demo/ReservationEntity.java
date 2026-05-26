@@ -44,5 +44,4 @@ public class ReservationEntity {
     public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
     public void setStatus(ReservationStatus status) { this.status = status; }
 
-
 }
